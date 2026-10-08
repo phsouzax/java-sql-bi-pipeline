@@ -1,15 +1,24 @@
 package com.pedrosouzza.JBLsystem.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public record BrasilApiCnpjDto (
-    String cnpj,
-    @JsonProperty("razao_social") String razaoSocial,
-    @JsonProperty("nome_fantasia") String nomeFantasia,
-    @JsonProperty("cnae_fiscal") String cnaeFiscal,
-    @JsonProperty("cnae_fiscal_descricao") String cnaeFiscalDescricao,
-    @JsonProperty("descricao_porte") String descricaoPorte,
-    String uf,
-    String municipio
-
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record BrasilApiCnpjDto(
+        String cnpj,
+        @JsonProperty("razao_social") String razaoSocial,
+        @JsonProperty("nome_fantasia") String nomeFantasia,
+        @JsonProperty("descricao_situacao_cadastral") String situacaoCadastral,
+        @JsonProperty("cnae_fiscal") Long cnaeFiscal,
+        @JsonProperty("cnae_fiscal_descricao") String cnaeDescricao,
+        @JsonProperty("data_inicio_atividade") String dataInicioAtividade,
+        @JsonProperty("capital_social") Double capitalSocial,
+        String logradouro,
+        String numero,
+        String bairro,
+        String municipio,
+        String uf,
+        String cep,
+        @JsonProperty("ddd_telefone_1") String telefone,
+        String email
 ) {}

@@ -1,6 +1,8 @@
 package com.pedrosouzza.JBLsystem.client;
 
-import com.pedrosouzza.JBLsystem.dto.BrasilApiCnpjDto;
+import java.util.Map;
+
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
@@ -12,15 +14,13 @@ public class BrasilApiClient {
     public BrasilApiClient() {
         this.restClient = RestClient.builder()
                 .baseUrl("https://brasilapi.com.br/api/cnpj/v1")
-        .build();
+                .build();
     }
 
-    public BrasilApiCnpjDto buscarCnpj(String cnpj) {
-        String cnpjLimpo = cnpj.replaceAll("\\D", "");
-
-                return restClient.get()
-                        .uri("/cnpj}", cnpjLimpo)
-                        .retrieve()
-                        .body(BrasilApiCnpjDto.class);
+    public Map<String, Object> buscarCnpj(String cnpj) {
+        return restClient.get()
+                .uri("/{cnpj}", cnpj)
+                .retrieve()
+                .body(new ParameterizedTypeReference<Map<String, Object>>() {});
     }
 }
