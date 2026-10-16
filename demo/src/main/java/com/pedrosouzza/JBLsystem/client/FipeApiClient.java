@@ -1,5 +1,6 @@
 package com.pedrosouzza.JBLsystem.client;
 
+import com.pedrosouzza.JBLsystem.dto.FipeValorDTO;
 import com.pedrosouzza.JBLsystem.dto.MarcaResponseDTO;
 import com.pedrosouzza.JBLsystem.domain.TipoVeiculoEnum;
 import org.springframework.core.ParameterizedTypeReference;
@@ -29,5 +30,11 @@ public class FipeApiClient {
                 })
                 .retrieve()
                 .body(new ParameterizedTypeReference<List<MarcaResponseDTO>>() {});
+    }
+    public List<FipeValorDTO> buscarPorCodigo(String tipoVeiculo, String codigoFipe) {
+        return restClient.get()
+                .uri("/{tipo}/veiculos/{codigoFipe}", tipoVeiculo, codigoFipe)
+                .retrieve()
+                .body(new ParameterizedTypeReference<List<FipeValorDTO>>() {});
     }
 }
