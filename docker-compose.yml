@@ -1,0 +1,36 @@
+services:
+  # Serviço do Banco de Dados MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: jsb-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: jsb_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - jsb-network
+
+  # Serviço da Ferramenta de BI (Metabase)
+  metabase:
+    image: metabase/metabase:latest
+    container_name: jsb-metabase
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      MB_DB_TYPE: postgres # Ou h2 por padrão para guardar configs internas do Metabase
+    depends_on:
+      - mysql
+    networks:
+      - jsb-network
+
+volumes:
+  mysql_data:
+
+networks:
+  jsb-network:
+    driver: bridge
