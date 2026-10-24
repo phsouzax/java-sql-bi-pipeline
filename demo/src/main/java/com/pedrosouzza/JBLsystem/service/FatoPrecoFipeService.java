@@ -16,11 +16,11 @@ public class FatoPrecoFipeService {
         this.fatoPrecoFipeRepository = fatoPrecoFipeRepository;
     }
 
-    public void salvarHistoricoPreco(Long veiculoId, String mesReferencia, BigDecimal valor) {
-        boolean jaExiste = fatoPrecoFipeRepository.findByVeiculoIdAndMesReferencia(veiculoId, mesReferencia).isPresent();
+    public void salvarHistoricoPreco(String codigoFipe, String mesReferencia, BigDecimal valor) {
+        boolean jaExiste = fatoPrecoFipeRepository.findByCodigoFipeAndMesReferencia(codigoFipe, mesReferencia).isPresent();
 
         if (!jaExiste) {
-            FatoPrecoFipe historico = new FatoPrecoFipe(null, veiculoId, mesReferencia, valor, LocalDateTime.now());
+            FatoPrecoFipe historico = new FatoPrecoFipe(null, codigoFipe, mesReferencia, valor, LocalDateTime.now());
 
             fatoPrecoFipeRepository.save(historico);
         }

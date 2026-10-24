@@ -18,11 +18,11 @@ public class FatoPrecoFipeController {
 
     @PostMapping
     public ResponseEntity<String> salvarHistorico(
-            @RequestParam Long veiculoId,
+            @RequestParam String codigoFipe,
             @RequestParam String mesReferencia,
             @RequestParam BigDecimal valor) {
 
-        fatoPrecoFipeService.salvarHistoricoPreco(veiculoId, mesReferencia, valor);
+        fatoPrecoFipeService.salvarHistoricoPreco(codigoFipe, mesReferencia, valor);
         return ResponseEntity.ok("Histórico de preço processado com sucesso!");
     }
 }

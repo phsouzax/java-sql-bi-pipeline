@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "fato_preco_fipe", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"veiculo_id", "mes_referencia"})
+        @UniqueConstraint(columnNames = {"codigo_fipe", "mes_referencia"})
 })
 @Data
 @NoArgsConstructor
@@ -21,8 +21,8 @@ public class FatoPrecoFipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "veiculo_id", nullable = false)
-    private Long veiculoId;
+    @Column(name = "codigo_fipe", nullable = false, length = 20)
+    private String codigoFipe;
 
     @Column(name = "mes_referencia", nullable = false)
     private String mesReferencia;

@@ -11,10 +11,7 @@ public class LogIngestao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "tipo_fonte", nullable = false)
-    private String tipoFonte;
-
-    @Column(name = "tipo_ingestao")
+    @Column(name = "tipo_ingestao", nullable = false)
     private String tipoIngestao;
 
     @Column(nullable = false)
@@ -28,20 +25,16 @@ public class LogIngestao {
 
     public LogIngestao() {}
 
-    public LogIngestao(String tipoFonte, String status, String mensagemErro, LocalDateTime dataExecucao) {
-        this.tipoFonte = tipoFonte;
+    public LogIngestao(String tipoIngestao, String status, String mensagemErro, LocalDateTime dataExecucao) {
+        this.tipoIngestao = tipoIngestao;
         this.status = status;
         this.mensagemErro = mensagemErro;
         this.dataExecucao = dataExecucao;
-        this.tipoIngestao = "AUTOMATICA";
     }
 
     // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-
-    public String getTipoFonte() { return tipoFonte; }
-    public void setTipoFonte(String tipoFonte) { this.tipoFonte = tipoFonte; }
 
     public String getTipoIngestao() { return tipoIngestao; }
     public void setTipoIngestao(String tipoIngestao) { this.tipoIngestao = tipoIngestao; }

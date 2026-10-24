@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,6 +14,6 @@ import java.time.LocalDate;
 public class FipeValorDTO {
     private String codigoFipe;
     private BigDecimal valorFipe;
-    private LocalDate mesReferencia;
+    private String mesReferencia;
 
 }

@@ -47,13 +47,13 @@ public class FipeService {
         return valores;
     }
 
-    public void salvarHistoricoPreco(Long veiculoId, String mesReferencia, BigDecimal valor) {
-        boolean jaExiste = fatoPrecoFipeRepository.findByVeiculoIdAndMesReferencia(veiculoId, mesReferencia).isPresent();
+    public void salvarHistoricoPreco(String codigoFipe, String mesReferencia, BigDecimal valor) {
+        boolean jaExiste = fatoPrecoFipeRepository.findByCodigoFipeAndMesReferencia(codigoFipe, mesReferencia).isPresent();
 
         if (!jaExiste) {
             FatoPrecoFipe historico = new FatoPrecoFipe(
                     null,
-                    veiculoId,
+                    codigoFipe,
                     mesReferencia,
                     valor,
                     LocalDateTime.now()

@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface FatoPrecoFipeRepository extends JpaRepository<FatoPrecoFipe, Long> {
 
-    Optional<FatoPrecoFipe> findByVeiculoIdAndMesReferencia (Long veiculoId, String mesReferencia);
+    Optional<FatoPrecoFipe> findByCodigoFipeAndMesReferencia(String codigoFipe, String mesReferencia);
 }

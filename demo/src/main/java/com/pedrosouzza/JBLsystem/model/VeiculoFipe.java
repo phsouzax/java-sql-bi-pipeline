@@ -9,9 +9,6 @@ import java.time.LocalDateTime;
 public class VeiculoFipe {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @Column(name = "codigo_fipe", nullable = false)
     private String codigoFipe;
 
@@ -32,9 +29,6 @@ public class VeiculoFipe {
     public VeiculoFipe() {}
 
     // Getters e Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-
     public String getCodigoFipe() { return codigoFipe; }
     public void setCodigoFipe(String codigoFipe) { this.codigoFipe = codigoFipe; }
 
