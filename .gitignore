@@ -1,62 +1,28 @@
-<<<<<<< HEAD
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-.kotlin
+# Maven build output
+**/target/
+**/build/
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+# Maven Wrapper scripts and configuration are kept in the repository
+
+# IDE and editor metadata
+.idea/
+**/.idea/
 *.iml
-*.ipr
-
-### Eclipse ###
-=======
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-
-### STS ###
->>>>>>> 16faeec (feat feat: add resilient FIPE queries and raw response reprocessing)
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-<<<<<<< HEAD
-=======
-### IntelliJ IDEA ###
-.idea
 *.iws
-*.iml
 *.ipr
-*.env
-
->>>>>>> 16faeec (feat feat: add resilient FIPE queries and raw response reprocessing)
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
 .vscode/
-<<<<<<< HEAD
 
-### Mac OS ###
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and accidental command output
+*.log
+erro.txt
+[[]Help
+**/[[]Help
+
+# OS files
 .DS_Store
-=======
->>>>>>> 16faeec (feat feat: add resilient FIPE queries and raw response reprocessing)
+Thumbs.db
